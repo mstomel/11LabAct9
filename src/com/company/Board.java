@@ -11,12 +11,12 @@ import java.util.ArrayList;
 public abstract class Board {
 
     /**
-     * The cards on this board.
+     * The com.company.cards on this board.
      */
     private Card[] cards;
 
     /**
-     * The deck of cards being used to play the current game.
+     * The deck of com.company.cards being used to play the current game.
      */
     private Deck deck;
 
@@ -27,10 +27,10 @@ public abstract class Board {
 
     /**
      * Creates a new <code>Board</code> instance.
-     * @param size the number of cards in the board
+     * @param size the number of com.company.cards in the board
      * @param ranks the names of the card ranks needed to create the deck
      * @param suits the names of the card suits needed to create the deck
-     * @param pointValues the integer values of the cards needed to create
+     * @param pointValues the integer values of the com.company.cards needed to create
      *                    the deck
      */
     public Board(int size, String[] ranks, String[] suits, int[] pointValues) {
@@ -45,7 +45,7 @@ public abstract class Board {
 
     /**
      * Start a new game by shuffling the deck and
-     * dealing some cards to this board.
+     * dealing some com.company.cards to this board.
      */
     public void newGame() {
         deck.shuffle();
@@ -54,7 +54,7 @@ public abstract class Board {
 
     /**
      * Accesses the size of the board.
-     * Note that this is not the number of cards it contains,
+     * Note that this is not the number of com.company.cards it contains,
      * which will be smaller near the end of a winning game.
      * @return the size of the board
      */
@@ -63,7 +63,7 @@ public abstract class Board {
     }
 
     /**
-     * Determines if the board is empty (has no cards).
+     * Determines if the board is empty (has no com.company.cards).
      * @return true if this board is empty; false otherwise.
      */
     public boolean isEmpty() {
@@ -86,7 +86,7 @@ public abstract class Board {
 
     /**
      * Accesses the deck's size.
-     * @return the number of undealt cards left in the deck.
+     * @return the number of undealt com.company.cards left in the deck.
      */
     public int deckSize() {
         return deck.size();
@@ -102,9 +102,9 @@ public abstract class Board {
     }
 
     /**
-     * Replaces selected cards on the board by dealing new cards.
+     * Replaces selected com.company.cards on the board by dealing new com.company.cards.
      * @param selectedCards is a list of the indices of the
-     *        cards to be replaced.
+     *        com.company.cards to be replaced.
      */
     public void replaceSelectedCards(List<Integer> selectedCards) {
         for (Integer k : selectedCards) {
@@ -113,7 +113,7 @@ public abstract class Board {
     }
 
     /**
-     * Gets the indexes of the actual (non-null) cards on the board.
+     * Gets the indexes of the actual (non-null) com.company.cards on the board.
      *
      * @return a List that contains the locations (indexes)
      *         of the non-null entries on the board.
@@ -142,7 +142,7 @@ public abstract class Board {
 
     /**
      * Determine whether or not the game has been won,
-     * i.e. neither the board nor the deck has any more cards.
+     * i.e. neither the board nor the deck has any more com.company.cards.
      * @return true when the current game has been won;
      *         false otherwise.
      */
@@ -160,9 +160,9 @@ public abstract class Board {
 
     /**
      * Method to be completed by the concrete class that determines
-     * if the selected cards form a valid group for removal.
-     * @param selectedCards the list of the indices of the selected cards.
-     * @return true if the selected cards form a valid group for removal;
+     * if the selected com.company.cards form a valid group for removal.
+     * @param selectedCards the list of the indices of the selected com.company.cards.
+     * @return true if the selected com.company.cards form a valid group for removal;
      *         false otherwise.
      */
     public abstract boolean isLegal(List<Integer> selectedCards);
@@ -176,7 +176,7 @@ public abstract class Board {
     public abstract boolean anotherPlayIsPossible();
 
     /**
-     * Deal cards to this board to start the game.
+     * Deal com.company.cards to this board to start the game.
      */
     private void dealMyCards() {
         for (int k = 0; k < cards.length; k++) {

@@ -9,24 +9,24 @@ import java.util.ArrayList;
 public class ElevensBoard extends Board {
 
     /**
-     * The size (number of cards) on the board.
+     * The size (number of com.company.cards) on the board.
      */
     private static final int BOARD_SIZE = 9;
 
     /**
-     * The ranks of the cards for this game to be sent to the deck.
+     * The ranks of the com.company.cards for this game to be sent to the deck.
      */
     private static final String[] RANKS =
             {"ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king"};
 
     /**
-     * The suits of the cards for this game to be sent to the deck.
+     * The suits of the com.company.cards for this game to be sent to the deck.
      */
     private static final String[] SUITS =
             {"spades", "hearts", "diamonds", "clubs"};
 
     /**
-     * The values of the cards for this game to be sent to the deck.
+     * The values of the com.company.cards for this game to be sent to the deck.
      */
     private static final int[] POINT_VALUES =
             {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0};
@@ -45,12 +45,12 @@ public class ElevensBoard extends Board {
     }
 
     /**
-     * Determines if the selected cards form a valid group for removal.
-     * In Elevens, the legal groups are (1) a pair of non-face cards
-     * whose values add to 11, and (2) a group of three cards consisting of
+     * Determines if the selected com.company.cards form a valid group for removal.
+     * In Elevens, the legal groups are (1) a pair of non-face com.company.cards
+     * whose values add to 11, and (2) a group of three com.company.cards consisting of
      * a jack, a queen, and a king in some order.
-     * @param selectedCards the list of the indices of the selected cards.
-     * @return true if the selected cards form a valid group for removal;
+     * @param selectedCards the list of the indices of the selected com.company.cards.
+     * @return true if the selected com.company.cards form a valid group for removal;
      *         false otherwise.
      */
     @Override
@@ -67,8 +67,8 @@ public class ElevensBoard extends Board {
     /**
      * Determine if there are any legal plays left on the board.
      * In Elevens, there is a legal play if the board contains
-     * (1) a pair of non-face cards whose values add to 11, or (2) a group
-     * of three cards consisting of a jack, a queen, and a king in some order.
+     * (1) a pair of non-face com.company.cards whose values add to 11, or (2) a group
+     * of three com.company.cards consisting of a jack, a queen, and a king in some order.
      * @return true if there is a legal play left on the board;
      *         false otherwise.
      */
@@ -76,13 +76,21 @@ public class ElevensBoard extends Board {
     public boolean anotherPlayIsPossible() {
 		for (int i = 0; i < cardIndexes().size(); i++) {
             for (int j = 0; j<cardIndexes().size(); j++) {
-                if ()
+                if (cardIndexes().get(i)+cardIndexes().get(j)==11) return true;
             }
         }
+        for (int i = 0; i < cardIndexes().size(); i++) {
+            for (int j = 0; j<cardIndexes().size(); j++) {
+                for (int k = 0; k<cardIndexes().size(); k++) {
+                    if (cardIndexes().get(i)+cardIndexes().get(j)+cardIndexes().get(k)==0) return true;
+                }
+            }
+        }
+        return false;
     }
 
     /**
-     * Check for an 11-pair in the selected cards.
+     * Check for an 11-pair in the selected com.company.cards.
      * @param selectedCards selects a subset of this board.  It is list
      *                      of indexes into this board that are searched
      *                      to find an 11-pair.
@@ -90,11 +98,11 @@ public class ElevensBoard extends Board {
      *              contain an 11-pair; false otherwise.
      */
     private boolean containsPairSum11(List<Integer> selectedCards) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		return selectedCards.get(0)+selectedCards.get(1)==11;
     }
 
     /**
-     * Check for a JQK in the selected cards.
+     * Check for a JQK in the selected com.company.cards.
      * @param selectedCards selects a subset of this board.  It is list
      *                      of indexes into this board that are searched
      *                      to find a JQK group.
@@ -102,6 +110,22 @@ public class ElevensBoard extends Board {
      *              include a jack, a queen, and a king; false otherwise.
      */
     private boolean containsJQK(List<Integer> selectedCards) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		int check = 0;
+        for (int i = 0; i < selectedCards.size(); i++) {
+            if (selectedCards.get(i).equals("J"));
+            check++;
+            break;
+        }
+        for (int i = 0; i < selectedCards.size(); i++) {
+            if (selectedCards.get(i).equals("Q"));
+            check++;
+            break;
+        }
+        for (int i = 0; i < selectedCards.size(); i++) {
+            if (selectedCards.get(i).equals("K"));
+            check++;
+            break;
+        }
+        return check == 3;
     }
 }
